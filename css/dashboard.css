@@ -1,0 +1,313 @@
+/*
+  dashboard.css
+  Proyecto: APPET
+  Estilos del dashboard: sidebar + tarjetas de servicios
+*/
+
+
+/* Misma paleta del login más dos colores nuevos para las tarjetas */
+:root {
+  --azul-fondo:    #edeff1;
+  --azul-acento:   #44a1db;
+  --azul-hover:    #2d8bc4;
+  --azul-claro:    #e8f4fb;
+  --azul-texto:    #3a6a8a;
+  --blanco:        #ffffff;
+  --gris-suave:    #f0f4f8;
+  --gris-texto:    #6a8fa8;
+  --borde:         #e2ecf4;
+
+  /* Color menta para la tarjeta de esterilización */
+  --menta-acento:  #2fada8;
+  --menta-hover:   #228e89;
+  --menta-claro:   #e4f7f6;
+
+  --sidebar-ancho: 255px;
+  --rojo-logout:   #e05555;
+}
+
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--gris-suave);
+  color: var(--azul-texto);
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* Layout: sidebar y contenido lado a lado */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+
+/* ── SIDEBAR ────────────────────────────────────
+   Fijo en la pantalla, siempre visible al hacer scroll */
+.sidebar {
+  width: var(--sidebar-ancho);
+  min-height: 100vh;
+  background-color: var(--blanco);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.2rem;
+  box-shadow: 2px 0 16px rgba(0, 0, 0, 0.07);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Sección del usuario con avatar e ícono */
+.sidebar-usuario {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding-bottom: 1.2rem;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--gris-suave);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatar i {
+  font-size: 1.1rem;
+  color: var(--gris-texto);
+}
+
+.usuario-nombre {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--azul-texto);
+}
+
+.divisor {
+  border: none;
+  border-top: 1px solid var(--borde);
+  margin-bottom: 1.2rem;
+}
+
+/* Menú de navegación */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+}
+
+/* Cada ítem del menú */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--azul-texto);
+  transition: background-color 0.15s;
+}
+
+/* Ancho fijo en el ícono para alinear los textos */
+.nav-item i {
+  width: 18px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.nav-item:hover {
+  background-color: var(--gris-suave);
+}
+
+/* Ítem de la página actual */
+.nav-item.activo {
+  background-color: var(--azul-acento);
+  color: var(--blanco);
+}
+
+.nav-item.activo:hover {
+  background-color: var(--azul-hover);
+}
+
+/* Botón de cerrar sesión al fondo del sidebar */
+.sidebar-footer {
+  padding-top: 1rem;
+  border-top: 1px solid var(--borde);
+}
+
+.btn-logout {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--rojo-logout);
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.btn-logout i {
+  font-size: 1rem;
+}
+
+.btn-logout:hover {
+  background-color: #fdecea;
+}
+
+
+/* ── CONTENIDO PRINCIPAL ────────────────────────
+   Tiene margen izquierdo igual al ancho del sidebar */
+.contenido {
+  margin-left: var(--sidebar-ancho);
+  flex: 1;
+  padding: 3rem 3.5rem;
+}
+
+.encabezado {
+  margin-bottom: 2.5rem;
+}
+
+.encabezado h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--azul-acento);
+  margin-bottom: 0.5rem;
+}
+
+.encabezado p {
+  font-size: 1rem;
+  color: var(--gris-texto);
+  line-height: 1.7;
+}
+
+
+/* ── TARJETAS DE SERVICIOS ──────────────────────
+   Grid de dos columnas, tarjetas con efecto de flotación */
+.servicios {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 860px;
+}
+
+/* Tarjeta base con sombra que simula flotación */
+.tarjeta {
+  background-color: var(--blanco);
+  border-radius: 18px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Al pasar el mouse la tarjeta "sube" un poco */
+.tarjeta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Cuadro con el ícono */
+.tarjeta-icono {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tarjeta-icono i {
+  font-size: 1.4rem;
+}
+
+/* Variantes de color del ícono */
+.icono--azul  { background-color: var(--azul-claro);  color: var(--azul-acento); }
+.icono--menta { background-color: var(--menta-claro); color: var(--menta-acento); }
+
+.tarjeta-titulo {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.titulo--azul  { color: var(--azul-acento);  }
+.titulo--menta { color: var(--menta-acento); }
+
+.tarjeta-texto {
+  font-size: 0.95rem;
+  color: var(--gris-texto);
+  line-height: 1.7;
+  flex: 1;    /* Empuja el botón al fondo de la tarjeta */
+}
+
+/* Botón dentro de la tarjeta */
+.btn-tarjeta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.2rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--blanco);
+  margin-top: 0.5rem;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-tarjeta i {
+  font-size: 0.85rem;
+}
+
+.btn-tarjeta:active {
+  transform: scale(0.98);
+}
+
+.btn-tarjeta--azul  { background-color: var(--azul-acento);  }
+.btn-tarjeta--menta { background-color: var(--menta-acento); }
+
+.btn-tarjeta--azul:hover  { background-color: var(--azul-hover);  }
+.btn-tarjeta--menta:hover { background-color: var(--menta-hover); }
+
+
+/* En móvil el sidebar se coloca arriba y las tarjetas se apilan */
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+  }
+
+  .contenido {
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+
+  .servicios {
+    grid-template-columns: 1fr;
+  }
+}
