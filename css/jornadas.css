@@ -1,0 +1,221 @@
+/*
+  jornadas.css
+  Proyecto: APPET
+  Estilos de la página de jornadas disponibles.
+  Se usa junto con sidebar.css que define el layout base.
+*/
+
+
+/* Enlace para volver al dashboard */
+.btn-volver {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #44a1db;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+.btn-volver:hover {
+  text-decoration: underline;
+}
+
+/* Título de la página */
+h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #44a1db;
+  margin-bottom: 1.2rem;
+}
+
+/* Aviso informativo arriba de las jornadas */
+.aviso {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: #f0f4f8;
+  border-radius: 10px;
+  padding: 0.8rem 1.2rem;
+  font-size: 0.9rem;
+  color: #6a8fa8;
+  margin-bottom: 2rem;
+}
+
+.aviso i {
+  color: #44a1db;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+
+/* ── TARJETA DE JORNADA ─────────────────────────
+   Cada jornada es una fila con fecha, info y botón */
+.tarjeta-jornada {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* Jornada no disponible: todo en gris */
+.tarjeta-jornada.no-disponible {
+  background-color: #f5f5f5;
+  color: #aaa;
+}
+
+/* Cuadro de fecha */
+.fecha-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fde8dc;
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  min-width: 68px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* Fecha en gris cuando no está disponible */
+.no-disponible .fecha-box {
+  background-color: #e8e8e8;
+}
+
+.fecha-dia {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #3a6a8a;
+  line-height: 1;
+}
+
+.fecha-mes {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #6a8fa8;
+  text-transform: uppercase;
+}
+
+.no-disponible .fecha-dia,
+.no-disponible .fecha-mes {
+  color: #aaa;
+}
+
+/* Información central de la jornada */
+.info-jornada {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* Fila con ciudad y badge de estado */
+.ciudad-fila {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.ciudad {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #3a6a8a;
+}
+
+.no-disponible .ciudad {
+  color: #aaa;
+}
+
+/* Badge de estado: Disponible / Agotado */
+.badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+}
+
+.badge-disponible {
+  background-color: #d4f4e2;
+  color: #2a9d5c;
+}
+
+.badge-agotado {
+  background-color: #fde0e0;
+  color: #d05050;
+}
+
+/* Fila con lugar y horario */
+.detalle-fila {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: #6a8fa8;
+}
+
+.no-disponible .detalle-fila {
+  color: #bbb;
+}
+
+.detalle-fila span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Botón de enviar solicitud */
+.btn-solicitud {
+  padding: 0.7rem 1.4rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  transition: background-color 0.2s;
+}
+
+.btn-solicitud.activo {
+  background-color: #44a1db;
+  color: #ffffff;
+}
+
+.btn-solicitud.activo:hover {
+  background-color: #2d8bc4;
+}
+
+/* Botón desactivado cuando no hay disponibilidad */
+.btn-solicitud.inactivo {
+  background-color: #e0e0e0;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+
+/* Mensaje cuando no hay ninguna jornada */
+.sin-jornadas {
+  text-align: center;
+  padding: 3rem;
+  color: #6a8fa8;
+}
+
+.sin-jornadas i {
+  font-size: 3rem;
+  color: #c5d9ea;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.sin-jornadas p {
+  font-size: 1rem;
+  font-weight: 600;
+}
