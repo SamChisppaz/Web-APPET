@@ -1,0 +1,154 @@
+/* estilos compartidos del sidebar para todas las páginas internas */
+
+/* variables de color reutilizadas en todo el proyecto */
+:root {
+  --azul-acento:   #44a1db;
+  --azul-hover:    #2d8bc4;
+  --azul-texto:    #3a6a8a;
+  --blanco:        #ffffff;
+  --gris-suave:    #f0f4f8;
+  --gris-texto:    #6a8fa8;
+  --borde:         #e2ecf4;
+  --rojo-logout:   #e05555;
+  --sidebar-ancho: 255px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* estilos generales de la página */
+body {
+  font-family: sans-serif;
+  background-color: var(--gris-suave);
+  color: var(--azul-texto);
+  min-height: 100vh;
+}
+
+/* Quita el subrayado de todos los enlaces */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* distribuye el sidebar y el contenido uno al lado del otro */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* sidebar fijo en el lado izquierdo */
+.sidebar {
+  width: var(--sidebar-ancho);
+  min-height: 100vh;
+  background-color: var(--blanco);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.2rem;
+  box-shadow: 2px 0 16px rgba(0, 0, 0, 0.07);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Fila con el avatar y el nombre del usuario */
+.sidebar-usuario {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding-bottom: 1.2rem;
+}
+
+.usuario-nombre {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--azul-texto);
+}
+
+/* Línea separadora entre el usuario y los links.
+   margin-top: 0 evita que Bootstrap le agregue espacio extra arriba */
+.divisor {
+  border: none;
+  border-top: 3px solid var(--borde);
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+}
+
+/* contenedor de los enlaces del menú */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+}
+
+/* estilo de cada opción del menú */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--azul-texto);
+  transition: background-color 0.15s;
+}
+
+/* Ancho fijo en íconos para que los textos queden alineados */
+.nav-item i {
+  width: 18px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.nav-item:hover {
+  background-color: var(--gris-suave);
+}
+
+/* El link de la página actual se resalta en azul */
+.nav-item.activo {
+  background-color: var(--azul-acento);
+  color: var(--blanco);
+}
+
+.nav-item.activo:hover {
+  background-color: var(--azul-hover);
+}
+
+/* Botón de cerrar sesión al fondo del sidebar */
+.sidebar-footer {
+  padding-top: 1rem;
+  border-top: 1px solid var(--borde);
+}
+
+.btn-logout {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--rojo-logout);
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.btn-logout i { font-size: 2rem; }
+
+.btn-logout:hover {
+  background-color: #fdecea;
+}
+
+/* deja espacio para que el contenido no quede debajo del sidebar */
+.contenido {
+  margin-left: var(--sidebar-ancho);
+  flex: 1;
+  padding: 3rem 3.5rem;
+}
