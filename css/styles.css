@@ -1,0 +1,229 @@
+/* estilos de la página de login y registro */
+
+/* colores principales usados en toda la página */
+:root {
+  --azul-fondo:  #edeff1;
+  --azul-panel:  #c4e9fc6b;
+  --azul-acento: #44a1db;
+  --azul-hover:  #4a8ab8;
+  --azul-texto:  #3a6a8a;
+  --azul-logo:   #0768c4;
+  --texto-input: #2d5a78;
+  --borde:       #c5d9ea;
+  --error:       #e07070;
+  --blanco:      #ffffff;
+  --gris-texto:  #6a8fa8;
+}
+
+/* elimina los márgenes por defecto y calcula el tamaño incluyendo el borde */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* estilos generales de la página */
+body {
+  font-family: sans-serif;
+  background-color: var(--azul-fondo);
+  color: var(--azul-texto);
+  min-height: 100vh;
+}
+
+/* evita que las imágenes se salgan de su contenedor */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* centra la tarjeta en el medio de la pantalla */
+.pagina {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* caja principal que contiene los dos paneles */
+.tarjeta {
+  display: flex;
+  width: 100%;
+  max-width: 1100px;
+  min-height: 680px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(90, 158, 201, 0.2);
+}
+
+/* panel izquierdo donde se muestra el logo y la información */
+.panel-izquierdo {
+  flex: 1;
+  min-width: 0;
+  background-color: var(--azul-panel);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem;
+  gap: 1.2rem;
+}
+
+/* título principal del panel izquierdo */
+.panel-izquierdo h1 {
+  font-size: 2.4rem;
+  color: var(--azul-logo);
+}
+
+/* tamaño del logo */
+.logo {
+  width: 240px;
+  margin: 0 auto;
+}
+
+/* texto descriptivo debajo del logo */
+.descripcion {
+  max-width: 380px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--azul-logo);
+}
+
+/* frase corta debajo de la descripción */
+.eslogan {
+  max-width: 260px;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--azul-logo);
+}
+
+/* panel derecho donde se muestran los formularios */
+.panel-derecho {
+  flex: 1.1;
+  min-width: 0;
+  background-color: var(--blanco);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3.5rem 4.5rem;
+  gap: 2rem;
+}
+
+/* título del formulario activo */
+.panel-derecho h2 {
+  font-size: 1.9rem;
+  text-align: center;
+  color: var(--azul-logo);
+}
+
+/* contenedor de las pestañas */
+.pestanas {
+  display: flex;
+  border-bottom: 2px solid var(--borde);
+}
+
+/* estilo de cada pestaña */
+.pestana {
+  flex: 1;
+  margin-bottom: -2px;
+  padding: 0.7rem;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--gris-texto);
+  cursor: pointer;
+}
+
+/* resalta la pestaña seleccionada */
+.pestana.activa {
+  color: var(--azul-acento);
+  border-bottom-color: var(--azul-acento);
+}
+
+/* organiza los campos del formulario en columna */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* oculta el formulario que no está activo */
+.oculto {
+  display: none;
+}
+
+/* enlace para recuperar la contraseña */
+.link-olvide {
+  display: block;
+  padding-top: 0.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--azul-acento);
+}
+
+.link-olvide:hover {
+  text-decoration: underline;
+}
+
+/* mensaje de error debajo del campo */
+.error {
+  min-height: 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--error);
+}
+
+/* botón principal de APPET */
+.btn-appet {
+  padding: 0.8rem;
+  background-color: var(--azul-acento);
+  border: none;
+  border-radius: 8px;
+  color: var(--blanco);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.btn-appet:hover {
+  background-color: var(--azul-hover);
+  color: var(--blanco);
+}
+
+/* estilo de los campos del formulario */
+.form-control {
+  border: 1.5px solid var(--borde);
+  border-radius: 8px;
+  color: var(--texto-input);
+}
+
+/* borde azul y sombra al seleccionar un campo */
+.form-control:focus {
+  border-color: var(--azul-acento);
+  box-shadow: 0 0 0 3px rgba(91, 158, 201, 0.18);
+}
+
+/* borde rojo cuando un campo tiene error */
+.form-control.con-error {
+  border-color: var(--error);
+}
+
+/* estilo de las etiquetas */
+.form-label {
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--azul-texto);
+}
+
+/* en celulares los dos paneles se apilan uno sobre otro */
+@media (max-width: 600px) {
+  .tarjeta {
+    flex-direction: column;
+  }
+}
